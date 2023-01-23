@@ -1,4 +1,4 @@
 export const main = () => {
-    const a = 10;
-    return a;
+    const message = "Play the Shogi game1";
+    return message;
 };
