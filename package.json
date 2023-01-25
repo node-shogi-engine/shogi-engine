@@ -17,8 +17,8 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "dev": "ts-node",
     "test": "jest",
-    "prelint": "prettier --write src tests",
-    "lint": "eslint --fix src tests",
+    "prelint": "prettier --write src",
+    "lint": "eslint --fix src",
     "precommit": "simple-git-hooks"
   },
   "simple-git-hooks": {
