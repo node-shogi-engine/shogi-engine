@@ -1,14 +1,9 @@
 import { FileRankNumberList } from "../const/FileRankNumber";
-import {
-  FileRankNumber,
-  FileRankPair,
-} from "../type/FileRankNumber";
+import { FileRankNumber, FileRankPair } from "../type/FileRankNumber";
 
 export class FileRank {
   static get numbers(): number[] {
-    return FileRankNumberList.map(
-      (_, i) => (1 + i),
-    );
+    return FileRankNumberList.map((_, i) => 1 + i);
   }
 
   static is_in_file_rank_number(

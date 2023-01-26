@@ -1,17 +1,22 @@
 import { Piece } from "../../value/Piece";
+import { PieceClasses } from "../../value/PieceType";
 import { Player } from "../../value/Player";
+import { PieceOnBoard } from "../PieceOnBoard";
 
 test("Piece type, promotable test", () => {
   // expect success
   const test1 = () => {
-    const p = new Piece("King", Player.Sente, false);
-    return p;
+    const piece = new Piece(PieceClasses.King);
+    const pieceOnBoard = new PieceOnBoard(piece, Player.Sente);
+    return pieceOnBoard;
   };
   expect(test1).not.toThrow();
   // expect exception
   const test2 = () => {
-    const p = new Piece("King", Player.Sente, true);
-    return p;
+    const piece = new Piece(PieceClasses.King);
+    const pieceOnBoard = new PieceOnBoard(piece, Player.Sente);
+    pieceOnBoard.promotion();
+    return pieceOnBoard;
   };
   expect(test2).toThrow();
 });

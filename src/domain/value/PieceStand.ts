@@ -1,5 +1,5 @@
 import { Piece } from "./Piece";
-import { PieceTypes } from "../const/PieceTypes";
+import { PieceTypeList } from "../const/PieceType";
 // type
 import { PlayerType } from "../type/Player";
 import { PieceType } from "../type/Piece";
@@ -10,7 +10,7 @@ export class PieceStand {
 
   get top(): PiecesInStand {
     const pieceMap: PiecesInStand = {};
-    PieceTypes.forEach((piece_type) => {
+    PieceTypeList.forEach((piece_type) => {
       pieceMap[piece_type as string] = 0;
     });
     this.pieces.forEach((piece) => {

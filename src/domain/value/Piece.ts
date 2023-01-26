@@ -1,20 +1,32 @@
+import { assert } from "console";
 import { PieceType } from "../type/Piece";
-import { PieceTypes } from "../const/PieceTypes";
+import { PieceClasses } from "./PieceType";
 
-const NotPromotablePieceTypes: PieceType[] = ["King", "Gold"];
-const PromotableMap: { [key: string]: boolean } = Object.fromEntries(
-  PieceTypes.map((type) => (NotPromotablePieceTypes.includes(type) ? [type, false] : [type, true])),
-);
+// const NotPromotablePieceTypeList: PieceType[] = [
+//   PieceClasses.King,
+//   PieceClasses.Gold,
+// ];
+const PromotableMap: { [key: string]: boolean } = {
+  [PieceClasses.King]: false,
+  [PieceClasses.Gold]: false,
+  [PieceClasses.Rook]: true,
+  [PieceClasses.Bishop]: true,
+  [PieceClasses.Silver]: true,
+  [PieceClasses.kNight]: true,
+  [PieceClasses.Lance]: true,
+  [PieceClasses.Pawn]: true,
+
+};
 
 const PieceInitialMap: { [key: string]: string } = {
-  King: "K",
-  Gold: "G",
-  Rook: "R",
-  Bishop: "B",
-  Silver: "S",
-  kNight: "N",
-  Lance: "L",
-  Pawn: "P",
+  [PieceClasses.King]: "K",
+  [PieceClasses.Gold]: "G",
+  [PieceClasses.Rook]: "R",
+  [PieceClasses.Bishop]: "B",
+  [PieceClasses.Silver]: "S",
+  [PieceClasses.kNight]: "N",
+  [PieceClasses.Lance]: "L",
+  [PieceClasses.Pawn]: "P",
 };
 
 export class Piece {
@@ -22,27 +34,28 @@ export class Piece {
 
   public readonly typeInitial: string;
 
-  constructor(
-    public readonly type: PieceType,
-    private isPromoted: boolean = false,
-  ) {
+  private isReversed: boolean = false;
+
+  constructor(public readonly type: PieceType) {
     this.isPromotable = PromotableMap[this.type];
-    // exception
-    if (!this.isPromotable && this.is_promoted) {
-      throw new Error(
-        `This piece type can not promotion. Piece type: "${this.type}"`,
-      );
-    }
     this.typeInitial = PieceInitialMap[this.type];
   }
 
-  get is_promoted(): boolean {
-    return this.isPromoted;
+  get isPromoted(): boolean {
+    return this.isReversed;
   }
 
   public promotion(): void {
-    if (this.isPromotable) {
-      this.isPromoted = true;
-    }
+    assert(
+      this.isPromotable && !this.isReversed,
+      `This Piece can not promote, isPromotable: ${String(
+        this.isPromotable,
+      )}, isPromoted: ${String(this.isReversed)}`,
+    );
+    this.isReversed = true;
+  }
+
+  public beTaken(): void {
+    this.isReversed = false;
   }
 }

@@ -11,8 +11,13 @@ import { PieceStandPair } from "../type/PieceStand";
 import { PieceMoveFrom } from "../type/Piece";
 import { PlayerType } from "../type/Player";
 import { FileRankPair } from "../type/FileRankNumber";
+import { InitialShogiBoard } from "../const/InitialShogiBoard";
 
 export class Diagram {
+  static getInitialDiagram(): Diagram {
+    return new Diagram(Player.Sente, InitialShogiBoard);
+  }
+
   public readonly pieceStandPair: PieceStandPair;
 
   constructor(

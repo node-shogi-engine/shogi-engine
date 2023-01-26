@@ -1,4 +1,4 @@
-export const PieceTypes = [
+export const PieceTypeList = [
   "King",
   "Gold",
   // promotable

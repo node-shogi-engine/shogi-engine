@@ -1,17 +1,17 @@
 import { PiecesInStand } from "./PiecesInStand";
 // import { Square } from "./Square";
 import { FileRankPair } from "./FileRankNumber";
-import { PieceTypes } from "../const/PieceTypes";
+import { PieceTypeList } from "../const/PieceType";
 
 export type PieceMoveFrom = FileRankPair | PiecesInStand;
 
-export type PieceType = (typeof PieceTypes)[number];
+export type PieceType = (typeof PieceTypeList)[number];
 
-const OneSquarePieceTypes = ["King", "Gold", "Silver", "Pawn"] as const;
-export type OneSquarePiecetype = (typeof OneSquarePieceTypes)[number];
+const OneSquarePieceTypeList = ["King", "Gold", "Silver", "Pawn"] as const;
+export type OneSquarePiecetype = (typeof OneSquarePieceTypeList)[number];
 
-const LongRangePieceTypes = ["Rook", "Bishop", "Lance"] as const;
-export type LongRangePieceType = (typeof LongRangePieceTypes)[number];
+const LongRangePieceTypeList = ["Rook", "Bishop", "Lance"] as const;
+export type LongRangePieceType = (typeof LongRangePieceTypeList)[number];
 
 /* eslint-disable */
 export type kNightPieceType = "kNight";
