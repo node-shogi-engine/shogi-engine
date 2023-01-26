@@ -15,7 +15,6 @@ const PromotableMap: { [key: string]: boolean } = {
   [PieceClasses.kNight]: true,
   [PieceClasses.Lance]: true,
   [PieceClasses.Pawn]: true,
-
 };
 
 const PieceInitialMap: { [key: string]: string } = {

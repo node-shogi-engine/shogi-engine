@@ -12,7 +12,7 @@ type Direction = (typeof DirectionList)[number];
 
 export class BishopMoveArea implements IPieceMoveArea {
   public get_square_positions_as_plain(
-    current_position: SquarePosition,
+    currnetPosition: SquarePosition,
     piece_master: PlayerType,
   ): SquarePosition[] {
     (() => {
@@ -20,19 +20,19 @@ export class BishopMoveArea implements IPieceMoveArea {
     })();
     // 駒のある位置を基準にして、各方向へ伸びていく効きを取得する
     const up_right_position_list = this._square_positions_by_direction(
-      current_position,
+      currnetPosition,
       "ur",
     );
     const down_right_position_list = this._square_positions_by_direction(
-      current_position,
+      currnetPosition,
       "dr",
     );
     const up_left_position_list = this._square_positions_by_direction(
-      current_position,
+      currnetPosition,
       "ul",
     );
     const down_left_position_list = this._square_positions_by_direction(
-      current_position,
+      currnetPosition,
       "dl",
     );
     // 各方向の移動範囲を結合する
@@ -46,45 +46,45 @@ export class BishopMoveArea implements IPieceMoveArea {
   }
 
   public get_square_positions_as_on_diagram(
-    current_position: SquarePosition,
+    currnetPosition: SquarePosition,
     diagram: Diagram,
   ): SquarePosition[] {
     // 駒のある位置を基準にして、各方向へ伸びていく効きを取得する
     const up_right_position_list = this._square_positions_by_direction(
-      current_position,
+      currnetPosition,
       "ur",
     );
     const down_right_position_list = this._square_positions_by_direction(
-      current_position,
+      currnetPosition,
       "dr",
     );
     const up_left_position_list = this._square_positions_by_direction(
-      current_position,
+      currnetPosition,
       "ul",
     );
     const down_left_position_list = this._square_positions_by_direction(
-      current_position,
+      currnetPosition,
       "dl",
     );
     // 各方向にて、駒に突き当たるまでの範囲を取得
     const up_right_position_list_width_diagram = PieceMoveOnDiagram.sliece_in_where_can_move_on_diagram_for_long_piece(
       up_right_position_list,
-      current_position,
+      currnetPosition,
       diagram,
     );
     const down_right_position_list_width_diagram = PieceMoveOnDiagram.sliece_in_where_can_move_on_diagram_for_long_piece(
       down_right_position_list,
-      current_position,
+      currnetPosition,
       diagram,
     );
     const up_left_position_list_width_diagram = PieceMoveOnDiagram.sliece_in_where_can_move_on_diagram_for_long_piece(
       up_left_position_list,
-      current_position,
+      currnetPosition,
       diagram,
     );
     const down_left_position_list_width_diagram = PieceMoveOnDiagram.sliece_in_where_can_move_on_diagram_for_long_piece(
       down_left_position_list,
-      current_position,
+      currnetPosition,
       diagram,
     );
     // 各方向の移動範囲を結合する
@@ -97,12 +97,12 @@ export class BishopMoveArea implements IPieceMoveArea {
   }
 
   private _square_positions_by_direction(
-    current_position: SquarePosition,
+    currnetPosition: SquarePosition,
     direction: Direction,
   ): SquarePosition[] {
     const square_position_list: SquarePosition[] = [];
-    let current_file = current_position.file as number;
-    let current_rank = current_position.rank as number;
+    let current_file = currnetPosition.file as number;
+    let current_rank = currnetPosition.rank as number;
     let file_direction: number;
     let rank_direction: number;
     if (direction == "ur") {

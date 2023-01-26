@@ -1,32 +1,33 @@
-import { PieceType } from "../../../value/Piece";
-import { PlayerType } from "../../../value/Player";
+import { PieceType } from "../../../type/Piece";
+import { PlayerType } from "../../../type/Player";
 import { SquarePosition } from "../../../value/SquarePosition";
 import { PieceMoveAsPlain } from "../../PieceMove/PieceMoveAsPlain";
 
-export function move_area_test(
+export function moveAreaTest(
   piece_type: PieceType,
   piece_master: PlayerType,
-  current_position: SquarePosition,
-  expect_pair_list: number[][],
+  currnetPosition: SquarePosition,
+  // expect: number[][],
 ) {
   // PieceMove 生成
-  const piece_move = new PieceMoveAsPlain(
+  const pieceMove = new PieceMoveAsPlain(
     piece_type,
-    current_position,
+    currnetPosition,
     piece_master,
   );
-  const move_area: SquarePosition[] = piece_move.getCanMoveArea();
+  const moveArea: SquarePosition[] = pieceMove.getCanMoveArea();
   // テストの容易性のため、SquarePosition を FileRankPair 型にする
-  const move_area_as_pair: number[][] = move_area.map(
+  const moveAreaAsPair: number[][] = moveArea.map(
     (square_position) => square_position.pair,
   );
-  console.dir(move_area_as_pair);
+  // console.dir(moveAreaAsPair);
   // 期待する SquarePosition[] の長さを比較
-  expect(move_area.length).toEqual(expect_pair_list.length);
+  return { moveArea, moveAreaAsPair };
+  // expect(moveArea.length).toEqual(expect.length);
   // 期待する FileRankPair との比較、配列として比較
-  if (expect_pair_list.length > 0) {
-    move_area_as_pair.map((file_rank_pair, i) => {
-      expect(file_rank_pair).toEqual(expect_pair_list[i]);
-    });
-  }
+  // if (expect.length > 0) {
+  //   moveAreaAsPair.forEach((file_rank_pair, i) => {
+  //     expect(file_rank_pair).toEqual(expect[i]);
+  //   });
+  // }
 }

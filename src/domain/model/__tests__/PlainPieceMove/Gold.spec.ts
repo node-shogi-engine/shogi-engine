@@ -1,6 +1,6 @@
 import { Player } from "../../../value/Player";
 import { SquarePosition } from "../../../value/SquarePosition";
-import { move_area_test } from "./_helper";
+import { moveAreaTest } from "./_helper";
 
 /**
  * テストケース: (fike,rank)
@@ -12,9 +12,9 @@ import { move_area_test } from "./_helper";
 test("get PieceMove test as \"Gold\"", () => {
   const piece_type = "Gold";
   // 5,5 先手
-  let current_position = new SquarePosition(5, 5);
-  let player_type = Player.Sente;
-  let expect_pair_list = [
+  let currnetPosition = new SquarePosition(5, 5);
+  let playerType = Player.Sente;
+  let expect = [
     [6, 4],
     [5, 4],
     [4, 4],
@@ -24,12 +24,12 @@ test("get PieceMove test as \"Gold\"", () => {
     [5, 6],
     // [ 4, 6 ],
   ];
-  move_area_test(piece_type, player_type, current_position, expect_pair_list);
+  moveAreaTest(piece_type, playerType, currnetPosition, expect);
 
   // 5,5 後手
-  current_position = new SquarePosition(5, 5);
-  player_type = Player.Gote;
-  expect_pair_list = [
+  currnetPosition = new SquarePosition(5, 5);
+  playerType = Player.Gote;
+  expect = [
     [4, 6],
     [5, 6],
     [6, 6],
@@ -39,5 +39,5 @@ test("get PieceMove test as \"Gold\"", () => {
     [5, 4],
     // [ 6, 4 ],
   ];
-  move_area_test(piece_type, player_type, current_position, expect_pair_list);
+  moveAreaTest(piece_type, playerType, currnetPosition, expect);
 });

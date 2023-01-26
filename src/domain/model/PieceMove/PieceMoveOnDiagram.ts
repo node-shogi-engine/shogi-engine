@@ -4,11 +4,11 @@ import { Diagram } from "../Diagram";
 
 export class PieceMoveOnDiagram {
   // static methods for
-  static get_piece_master_by_current_position_and_diagram(
-    current_position: SquarePosition,
+  static get_piece_master_by_currnetPosition_and_diagram(
+    currnetPosition: SquarePosition,
     diagram: Diagram,
   ) {
-    const { file, rank } = current_position;
+    const { file, rank } = currnetPosition;
     const { piece } = diagram.shogi_board[file][rank];
     if (!piece) {
       console.error(diagram.diagram_to_string);
@@ -19,11 +19,11 @@ export class PieceMoveOnDiagram {
   // 効きの止まる場所を取得し、そこまでの配列を返す関数、足の長い駒に使う
   static sliece_in_where_can_move_on_diagram_for_long_piece(
     square_position_list: SquarePosition[],
-    current_position: SquarePosition,
+    currnetPosition: SquarePosition,
     diagram: Diagram,
   ) {
-    const master = this.get_piece_master_by_current_position_and_diagram(
-      current_position,
+    const master = this.get_piece_master_by_currnetPosition_and_diagram(
+      currnetPosition,
       diagram,
     );
     const square_has_piece = (square_position: SquarePosition) => {
@@ -36,8 +36,8 @@ export class PieceMoveOnDiagram {
       return square_position_list;
     }
     const { file, rank } = square_position_list[index];
-    const piece_in_current_position = diagram.shogi_board[file][rank].piece;
-    if (piece_in_current_position?.master == master) {
+    const piece_in_currnetPosition = diagram.shogi_board[file][rank].piece;
+    if (piece_in_currnetPosition?.master == master) {
       return square_position_list.slice(0, index);
     }
     return square_position_list.slice(0, index + 1);
@@ -62,7 +62,7 @@ export class PieceMoveOnDiagram {
   }
 
   constructor(
-    private _current_position: SquarePosition,
+    private _currnetPosition: SquarePosition,
     private _diagram: Diagram,
   ) {}
 
@@ -70,12 +70,12 @@ export class PieceMoveOnDiagram {
   public getCanMoveArea(): SquarePosition[] {
     const square_positions: SquarePosition[] = PieceMoveAreaFactory.factory(
       this._piece.type,
-    ).get_square_positions_as_on_diagram(this._current_position, this._diagram);
+    ).get_square_positions_as_on_diagram(this._currnetPosition, this._diagram);
     return square_positions;
   }
 
   private get _piece() {
-    const { file, rank } = this._current_position;
+    const { file, rank } = this._currnetPosition;
     const { piece } = this._diagram.shogi_board[file][rank];
     if (!piece) {
       console.error(this._diagram.diagram_to_string);

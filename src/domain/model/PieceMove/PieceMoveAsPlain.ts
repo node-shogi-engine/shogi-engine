@@ -7,12 +7,12 @@ import { PlayerType } from "../../type/Player";
 
 export interface IPieceMoveArea {
   get_square_positions_as_plain: (
-    current_position: SquarePosition,
+    currnetPosition: SquarePosition,
     piece_master: PlayerType
   ) => SquarePosition[];
 
   get_square_positions_as_on_diagram: (
-    current_position: SquarePosition,
+    currnetPosition: SquarePosition,
     diagram: Diagram
   ) => SquarePosition[];
 }
@@ -20,7 +20,7 @@ export interface IPieceMoveArea {
 export class PieceMoveAsPlain {
   constructor(
     private _piece_type: PieceType,
-    private current_position: SquarePosition,
+    private currnetPosition: SquarePosition,
     private _piece_master: PlayerType,
   ) {}
 
@@ -28,7 +28,7 @@ export class PieceMoveAsPlain {
   public getCanMoveArea(): SquarePosition[] {
     const square_positions: SquarePosition[] = PieceMoveAreaFactory.factory(
       this._piece_type,
-    ).get_square_positions_as_plain(this.current_position, this._piece_master);
+    ).get_square_positions_as_plain(this.currnetPosition, this._piece_master);
     return square_positions;
   }
 }

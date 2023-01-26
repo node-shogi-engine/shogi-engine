@@ -10,7 +10,7 @@ test("Move test", () => {
     promotion: false,
   });
   diagram.moved(move);
-  const expect_string = "987654321 \n"
+  const expectString = "987654321 \n"
     + "LNSGKGSNL1\n"
     + "-R-----B-2\n"
     + "PPPPPPPPP3\n"
@@ -20,5 +20,5 @@ test("Move test", () => {
     + "PP-PPPPPP7\n"
     + "-B-----R-8\n"
     + "LNSGKGSNL9\n";
-  expect(diagram.diagram_to_string()).toEqual(expect_string);
+  expect(diagram.diagram_to_string()).toEqual(expectString);
 });

@@ -1,7 +1,7 @@
 import { PieceClasses } from "../../../value/PieceType";
 import { Player } from "../../../value/Player";
 import { SquarePosition } from "../../../value/SquarePosition";
-import { move_area_test } from "./_helper";
+import { moveAreaTest } from "./_helper";
 
 /**
  * テストケース: (fike,rank)
@@ -22,7 +22,7 @@ test("get PieceMove test as \"King\"", () => {
     [2, 2],
     [1, 2],
   ];
-  move_area_test(pieceType, playerType, currentPosition, expect);
+  moveAreaTest(pieceType, playerType, currentPosition, expect);
 
   // 5,5
   currentPosition = new SquarePosition(5, 5);
@@ -37,7 +37,7 @@ test("get PieceMove test as \"King\"", () => {
     [5, 6],
     [4, 6],
   ];
-  move_area_test(pieceType, playerType, currentPosition, expect);
+  moveAreaTest(pieceType, playerType, currentPosition, expect);
 
   // 9,5
   currentPosition = new SquarePosition(9, 9);
@@ -47,5 +47,5 @@ test("get PieceMove test as \"King\"", () => {
     [8, 8],
     [8, 9],
   ];
-  move_area_test(pieceType, playerType, currentPosition, expect);
+  moveAreaTest(pieceType, playerType, currentPosition, expect);
 });

@@ -10,12 +10,12 @@ import { PlayerType } from "../../../type/Player";
 
 export class kNightMoveArea implements IPieceMoveArea {
   public get_square_positions_as_plain(
-    current_position: SquarePosition,
+    currnetPosition: SquarePosition,
     piece_master: PlayerType,
   ): SquarePosition[] {
     const square_position_list: SquarePosition[] = [];
-    const current_file = current_position.file;
-    const current_rank = current_position.rank;
+    const current_file = currnetPosition.file;
+    const current_rank = currnetPosition.rank;
     const target_file_pair = [current_file - 1, current_file + 1];
     const target_rank = piece_master == Player.Sente ? current_rank - 2 : current_rank + 2;
     target_file_pair.map((target_file) => {
@@ -32,15 +32,15 @@ export class kNightMoveArea implements IPieceMoveArea {
   }
 
   public get_square_positions_as_on_diagram(
-    current_position: SquarePosition,
+    currnetPosition: SquarePosition,
     diagram: Diagram,
   ): SquarePosition[] {
-    const master = PieceMoveOnDiagram.get_piece_master_by_current_position_and_diagram(
-      current_position,
+    const master = PieceMoveOnDiagram.get_piece_master_by_currnetPosition_and_diagram(
+      currnetPosition,
       diagram,
     );
     const square_position_list = this.get_square_positions_as_plain(
-      current_position,
+      currnetPosition,
       master,
     );
     return PieceMoveOnDiagram.filter_in_in_where_can_move_on_diagram_for_one_square_piece(

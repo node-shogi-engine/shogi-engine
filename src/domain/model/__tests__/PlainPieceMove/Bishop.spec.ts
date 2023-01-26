@@ -1,6 +1,6 @@
 import { Player } from "../../../value/Player";
 import { SquarePosition } from "../../../value/SquarePosition";
-import { move_area_test } from "./_helper";
+import { moveAreaTest } from "./_helper";
 
 /**
  * テストケース: (fike,rank)
@@ -11,11 +11,11 @@ import { move_area_test } from "./_helper";
  *  王・飛車・角は移動範囲判定に先後関係なし
  */
 test("get PieceMove test as \"Bishop\"", () => {
-  const piece_type = "Bishop";
+  const pieceType = "Bishop";
   // 1,1
-  let current_position = new SquarePosition(1, 1);
-  let player_type = Player.Sente;
-  let expect_pair_list = [
+  let currnetPosition = new SquarePosition(1, 1);
+  let playerType = Player.Sente;
+  let expect: Array<any> = [
     [2, 2],
     [3, 3],
     [4, 4],
@@ -25,12 +25,19 @@ test("get PieceMove test as \"Bishop\"", () => {
     [8, 8],
     [9, 9],
   ];
-  move_area_test(piece_type, player_type, current_position, expect_pair_list);
+  const expectLength: number = expect.length;
+  const { moveArea, moveAreaAsPair } = moveAreaTest(
+    pieceType,
+    playerType,
+    currnetPosition,
+  );
+  const moveAreaLength: number = moveArea.length;
+  expect(moveAreaLength).toEqual(expectLength);
 
   // 5,5
-  current_position = new SquarePosition(5, 5);
-  player_type = Player.Sente;
-  expect_pair_list = [
+  currnetPosition = new SquarePosition(5, 5);
+  playerType = Player.Sente;
+  expect = [
     [4, 4],
     [3, 3],
     [2, 2],
@@ -51,12 +58,12 @@ test("get PieceMove test as \"Bishop\"", () => {
     [8, 8],
     [9, 9],
   ];
-  move_area_test(piece_type, player_type, current_position, expect_pair_list);
+  moveAreaTest(pieceType, playerType, currnetPosition, expect);
 
   // 3,8
-  current_position = new SquarePosition(3, 8);
-  player_type = Player.Sente;
-  expect_pair_list = [
+  currnetPosition = new SquarePosition(3, 8);
+  playerType = Player.Sente;
+  expect = [
     [2, 7],
     [1, 6],
     //
@@ -71,5 +78,5 @@ test("get PieceMove test as \"Bishop\"", () => {
     //
     [4, 9],
   ];
-  move_area_test(piece_type, player_type, current_position, expect_pair_list);
+  moveAreaTest(pieceType, playerType, currnetPosition, expect);
 });

@@ -40,7 +40,7 @@ export class OneSquareMoveArea implements IPieceMoveArea {
   constructor(private _piece_type: PieceType) {}
 
   public get_square_positions_as_plain(
-    current_position: SquarePosition,
+    currnetPosition: SquarePosition,
     piece_master: PlayerType,
   ): SquarePosition[] {
     // specific piece props
@@ -49,8 +49,8 @@ export class OneSquareMoveArea implements IPieceMoveArea {
       : OneSquareMoveArea.OneSquareMoveArea[this._piece_type].map(
         (area) => (10 - area) as OneSquareArea, // 後手番の時、移動可能範囲を上下左右逆にする
       );
-    const current_file = current_position.file;
-    const current_rank = current_position.rank;
+    const current_file = currnetPosition.file;
+    const current_rank = currnetPosition.rank;
 
     // functions
     const piece_move_area_as_number = (number: OneSquareArea): number[] => {
@@ -88,13 +88,13 @@ export class OneSquareMoveArea implements IPieceMoveArea {
   }
 
   public get_square_positions_as_on_diagram(
-    current_position: SquarePosition,
+    currnetPosition: SquarePosition,
     diagram: Diagram,
   ): SquarePosition[] {
-    const { file, rank } = current_position;
+    const { file, rank } = currnetPosition;
     const { master } = diagram.shogi_board[file][rank].piece;
     const square_position_list = this.get_square_positions_as_plain(
-      current_position,
+      currnetPosition,
       master,
     );
     return PieceMoveOnDiagram.filter_in_in_where_can_move_on_diagram_for_one_square_piece(
