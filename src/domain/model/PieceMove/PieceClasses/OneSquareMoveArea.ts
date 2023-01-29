@@ -1,4 +1,4 @@
-import { Piece } from "../../../value/Piece";
+import { Piece } from "../../Piece";
 import {
   King, Gold, Silver, Pawn,
 } from "../../../const/PieceClassMoves";
@@ -11,7 +11,7 @@ import { PieceMoveOnDiagram } from "../PieceMoveOnDiagram";
 import { IPieceMoveArea } from "../PieceMoveAsPlain";
 // types
 import { FileRankNumber } from "../../../type/FileRankNumber";
-import { PieceType, OneSquareArea } from "../../../type/Piece";
+import { PieceType, OneSquareArea } from "../../../type/PieceClasses";
 import { PlayerType } from "../../../type/Player";
 
 export class OneSquareMoveArea implements IPieceMoveArea {
@@ -70,10 +70,10 @@ export class OneSquareMoveArea implements IPieceMoveArea {
     const generate_square_position_from_number = (
       file_rank_as_number: number[],
     ) => {
-      const file: FileRankNumber = FileRank.cast_number_to_file_rank(
+      const file: FileRankNumber = FileRank.castNumberToFileRank(
         file_rank_as_number[0],
       );
-      const rank: FileRankNumber = FileRank.cast_number_to_file_rank(
+      const rank: FileRankNumber = FileRank.castNumberToFileRank(
         file_rank_as_number[1],
       );
       return new SquarePosition(file, rank);

@@ -1,4 +1,4 @@
-import { PieceClasses } from "../../../value/PieceType";
+import { PieceClasses } from "../../../value/PieceClasses";
 import { Player } from "../../../value/Player";
 import { SquarePosition } from "../../../value/SquarePosition";
 import { moveAreaTest } from "./_helper";

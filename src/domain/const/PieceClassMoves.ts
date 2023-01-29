@@ -1,5 +1,5 @@
-import { OneSquareArea } from "../type/Piece";
-import { PieceClasses } from "../value/PieceType";
+import { OneSquareArea } from "../type/PieceClasses";
+import { PieceClasses } from "../value/PieceClasses";
 /* eslint-disable */
 
 // one square pieces

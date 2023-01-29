@@ -1,16 +1,16 @@
 import { Piece } from "./Piece";
-import { PieceTypeList } from "../const/PieceType";
+import { PIECE_TYPE_LIST } from "../const/PieceType";
 // type
 import { PlayerType } from "../type/Player";
-import { PieceType } from "../type/Piece";
+import { PieceType } from "../type/PieceClasses";
 import { PiecesInStand } from "../type/PiecesInStand";
 
 export class PieceStand {
-  constructor(public readonly master: PlayerType, private pieces: Piece[]) {}
+  constructor(public readonly master: PlayerType, private pieces: Piece[] = []) {}
 
   get top(): PiecesInStand {
     const pieceMap: PiecesInStand = {};
-    PieceTypeList.forEach((piece_type) => {
+    PIECE_TYPE_LIST.forEach((piece_type) => {
       pieceMap[piece_type as string] = 0;
     });
     this.pieces.forEach((piece) => {

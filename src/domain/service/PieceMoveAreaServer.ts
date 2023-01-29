@@ -1,5 +1,5 @@
 import { Diagram } from "../model/Diagram";
-import { Square } from "../type/Square";
+import { Square } from "../type/SquareContent";
 import { SquarePosition } from "../value/SquarePosition";
 import { PieceMoveAreaFactory } from "./PlainPieceMoveAreaFactory";
 

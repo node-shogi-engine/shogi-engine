@@ -1,4 +1,5 @@
-export const main = (): string => {
-  const message = "Play the Shogi game1";
-  return message;
-};
+import { Game } from "./application/Game";
+
+const game = new Game();
+// console.dir(game.showShogiBoard());
+console.log(game.showDiagram());

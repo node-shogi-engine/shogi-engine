@@ -1,5 +1,5 @@
-import { Piece } from "../../value/Piece";
-import { PieceClasses } from "../../value/PieceType";
+import { Piece } from "../Piece";
+import { PieceClasses } from "../../value/PieceClasses";
 import { Player } from "../../value/Player";
 import { PieceOnBoard } from "../PieceOnBoard";
 

@@ -1,4 +1,4 @@
-import { PieceType } from "../../../type/Piece";
+import { PieceType } from "../../../type/PieceClasses";
 import { PlayerType } from "../../../type/Player";
 import { SquarePosition } from "../../../value/SquarePosition";
 import { PieceMoveAsPlain } from "../../PieceMove/PieceMoveAsPlain";

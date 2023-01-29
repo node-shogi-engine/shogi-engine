@@ -1,5 +1,5 @@
 import { Diagram } from "../Diagram";
-import { DiagramFactory } from "../../service/DiagramFactory";
+import { DiagramFactory } from "../../service/DiagramService";
 
 test("Diagram create test", () => {
   const diagram: Diagram = DiagramFactory.factory();

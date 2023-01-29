@@ -1,10 +1,10 @@
-import { DiagramFactory } from "../../service/DiagramFactory";
-import { MoveFactory } from "../../service/MoveFactory";
-import { Move } from "../../type/Move";
+import { DiagramService } from "../../service/DiagramService";
+import { MoveService } from "../../service/MoveService";
+import { Move } from "../type/Move";
 
 test("Move test", () => {
-  const diagram = DiagramFactory.factory();
-  const move: Move = MoveFactory.create_move_from_pair(diagram, {
+  const diagram = DiagramService.getInitialDiagram();
+  const move: Move = MoveService.create_move_from_pair(diagram, {
     from: [7, 7],
     to: [7, 6],
     promotion: false,

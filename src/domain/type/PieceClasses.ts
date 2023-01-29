@@ -1,11 +1,6 @@
-import { PiecesInStand } from "./PiecesInStand";
-// import { Square } from "./Square";
-import { FileRankPair } from "./FileRankNumber";
-import { PieceTypeList } from "../const/PieceType";
+import { PIECE_TYPE_LIST } from "../const/PieceType";
 
-export type PieceMoveFrom = FileRankPair | PiecesInStand;
-
-export type PieceType = (typeof PieceTypeList)[number];
+export type PieceType = (typeof PIECE_TYPE_LIST)[number];
 
 const OneSquarePieceTypeList = ["King", "Gold", "Silver", "Pawn"] as const;
 export type OneSquarePiecetype = (typeof OneSquarePieceTypeList)[number];

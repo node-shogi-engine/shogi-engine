@@ -1,5 +1,5 @@
 // import { Diagram } from "../value/Diagram";
-import { Piece } from "../value/Piece";
+import { Piece } from "./Piece";
 // import { ShogiBoard } from "../value/ShogiBoard";
 
 /**

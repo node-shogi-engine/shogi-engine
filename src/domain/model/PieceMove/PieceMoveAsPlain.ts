@@ -2,7 +2,7 @@ import { SquarePosition } from "../../value/SquarePosition";
 import { PieceMoveAreaFactory } from "../../service/PlainPieceMoveAreaFactory";
 import { Diagram } from "../Diagram";
 // type
-import { PieceType } from "../../type/Piece";
+import { PieceType } from "../../type/PieceClasses";
 import { PlayerType } from "../../type/Player";
 
 export interface IPieceMoveArea {

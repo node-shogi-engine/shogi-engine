@@ -1,6 +1,6 @@
 import { assert } from "console";
-import { PieceType } from "../type/Piece";
-import { PieceClasses } from "./PieceType";
+import { PieceType } from "../type/PieceClasses";
+import { PieceClasses } from "../value/PieceClasses";
 
 // const NotPromotablePieceTypeList: PieceType[] = [
 //   PieceClasses.King,
@@ -17,17 +17,6 @@ const PromotableMap: { [key: string]: boolean } = {
   [PieceClasses.Pawn]: true,
 };
 
-const PieceInitialMap: { [key: string]: string } = {
-  [PieceClasses.King]: "K",
-  [PieceClasses.Gold]: "G",
-  [PieceClasses.Rook]: "R",
-  [PieceClasses.Bishop]: "B",
-  [PieceClasses.Silver]: "S",
-  [PieceClasses.kNight]: "N",
-  [PieceClasses.Lance]: "L",
-  [PieceClasses.Pawn]: "P",
-};
-
 export class Piece {
   public readonly isPromotable: boolean;
 
@@ -37,7 +26,7 @@ export class Piece {
 
   constructor(public readonly type: PieceType) {
     this.isPromotable = PromotableMap[this.type];
-    this.typeInitial = PieceInitialMap[this.type];
+    this.typeInitial = PieceClasses.PieceInitialMap[this.type];
   }
 
   get isPromoted(): boolean {

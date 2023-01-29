@@ -1,5 +1,5 @@
-import { Piece } from "../value/Piece";
-import { PieceClasses } from "../value/PieceType";
+import { Piece } from "../model/Piece";
+import { PieceClasses } from "../value/PieceClasses";
 
 export const PieceSetAsDefault: Piece[] = [
   // first Player

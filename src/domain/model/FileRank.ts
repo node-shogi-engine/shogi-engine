@@ -20,7 +20,7 @@ export class FileRank {
     return true;
   }
 
-  static cast_number_to_file_rank(number: number): FileRankNumber {
+  static castNumberToFileRank(number: number): FileRankNumber {
     const numbers: number[] = FILE_RANK_NUMBER_LIST.map((n) => n as number);
     const index = numbers.indexOf(number);
     if (index < 0) {
@@ -46,6 +46,14 @@ export class FileRank {
     //   }
     // }
     return resultArray;
+  }
+
+  static forEach<T>(func: (file: FileRankNumber, rank: FileRankNumber) => T): void {
+    FILE_RANK_NUMBER_LIST.forEach((file) => {
+      FILE_RANK_NUMBER_LIST.forEach((rank) => {
+        func(file, rank);
+      });
+    });
   }
 
   static find(

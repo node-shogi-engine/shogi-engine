@@ -1,6 +1,6 @@
-import { Piece } from "../value/Piece";
+import { Piece } from "./Piece";
 import { PlayerType } from "../type/Player";
-import { PieceType } from "../type/Piece";
+import { PieceType } from "../type/PieceClasses";
 
 export class PieceOnStand {
   constructor(

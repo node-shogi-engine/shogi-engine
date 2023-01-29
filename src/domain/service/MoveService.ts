@@ -1,9 +1,9 @@
 import { Diagram } from "../model/Diagram";
-import { PieceStand } from "../value/PieceStand";
+import { PieceStand } from "../model/PieceStand";
 import { FileRankPair } from "../const/FileRankNumber";
-import { Move } from "../type/Move";
-import { Piece } from "../value/Piece";
-import { Square } from "../type/Square";
+import { Move } from "../model/type/Move";
+import { Piece } from "../model/Piece";
+import { Square } from "../type/SquareContent";
 
 export type MoveOptionAsPair = {
   from?: FileRankPair;
@@ -11,7 +11,8 @@ export type MoveOptionAsPair = {
   promotion: boolean;
 };
 
-export class MoveFactory {
+export class MoveService {
+  static factory()
   static create_move_from_pair(diagram: Diagram, option: MoveOptionAsPair) {
     const to = diagram.get_square(option.to);
     if (option.from) {

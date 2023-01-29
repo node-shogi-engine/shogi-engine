@@ -15,7 +15,7 @@
     "build": "run-p build:*",
     "build:common": "tsc",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "dev": "ts-node",
+    "dev": "ts-node ./src/index.ts",
     "test": "jest",
     "prelint": "prettier --write src",
     "lint": "eslint --fix src",

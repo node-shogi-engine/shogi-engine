@@ -4,7 +4,7 @@ import { kNightMoveArea } from "../model/PieceMove/PieceClasses/kNightMoveArea";
 import { LanceMoveArea } from "../model/PieceMove/PieceClasses/LanceMoveArea";
 import { OneSquareMoveArea } from "../model/PieceMove/PieceClasses/OneSquareMoveArea";
 import { IPieceMoveArea } from "../model/PieceMove/PieceMoveAsPlain";
-import { PieceType } from "../value/Piece";
+import { PieceType } from "../model/Piece";
 
 export class PieceMoveAreaFactory {
   private static _make_class(piece_type: PieceType): IPieceMoveArea {
