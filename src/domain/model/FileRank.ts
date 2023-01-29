@@ -1,16 +1,16 @@
-import { FileRankNumberList } from "../const/FileRankNumber";
+import { FILE_RANK_NUMBER_LIST } from "../const/FileRankNumber";
 import { FileRankNumber, FileRankPair } from "../type/FileRankNumber";
 
 export class FileRank {
   static get numbers(): number[] {
-    return FileRankNumberList.map((_, i) => 1 + i);
+    return FILE_RANK_NUMBER_LIST.map((_, i) => 1 + i);
   }
 
   static is_in_file_rank_number(
     file_number: number,
     rank_number: number,
   ): boolean {
-    const numbers: number[] = FileRankNumberList.map((n) => n as number);
+    const numbers: number[] = FILE_RANK_NUMBER_LIST.map((n) => n as number);
     if (!numbers.includes(file_number)) {
       return false;
     }
@@ -21,20 +21,20 @@ export class FileRank {
   }
 
   static cast_number_to_file_rank(number: number): FileRankNumber {
-    const numbers: number[] = FileRankNumberList.map((n) => n as number);
+    const numbers: number[] = FILE_RANK_NUMBER_LIST.map((n) => n as number);
     const index = numbers.indexOf(number);
     if (index < 0) {
       throw Error(
         `The number "${number}" is not in range of file rank numbers.`,
       );
     }
-    return FileRankNumberList[index];
+    return FILE_RANK_NUMBER_LIST[index];
   }
 
   static map<T>(func: (file: FileRankNumber, rank: FileRankNumber) => T): T[] {
     const resultArray: T[] = [];
-    FileRankNumberList.forEach((file) => {
-      FileRankNumberList.forEach((rank) => {
+    FILE_RANK_NUMBER_LIST.forEach((file) => {
+      FILE_RANK_NUMBER_LIST.forEach((rank) => {
         const result = func(file, rank);
         resultArray.push(result);
       });
@@ -52,8 +52,8 @@ export class FileRank {
     func: (file: FileRankNumber, rank: FileRankNumber) => boolean,
   ): FileRankPair[] | null {
     const hit: FileRankPair[] = [];
-    FileRankNumberList.forEach((file) => {
-      FileRankNumberList.forEach((rank) => {
+    FILE_RANK_NUMBER_LIST.forEach((file) => {
+      FILE_RANK_NUMBER_LIST.forEach((rank) => {
         const result = func(file, rank);
         if (result) {
           hit.push([file, rank]);

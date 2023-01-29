@@ -24,7 +24,7 @@ const generatePieceOnBoard = (
   throw Error(`Piece type ${pieceType} is no remainig in piece set.`);
 };
 
-export const InitialShogiBoard: ShogiBoard = [
+export const INITIAL_SHOGI_BOARD: ShogiBoard = [
   // file 1
   [
     generatePieceOnBoard(PieceClasses.Pawn, Player.Gote),

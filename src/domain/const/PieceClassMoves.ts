@@ -1,15 +1,17 @@
 import { OneSquareArea } from "../type/Piece";
+import { PieceClasses } from "../value/PieceType";
 /* eslint-disable */
 
 // one square pieces
-export const King: OneSquareArea[] = [7, 8, 9, 4, 6, 1, 2, 3];
-export const Gold: OneSquareArea[] = [7, 8, 9, 4, 6, 2];
-export const Silver: OneSquareArea[] = [
+const King: OneSquareArea[] = [7, 8, 9, 4, 6, 1, 2, 3];
+
+const Gold: OneSquareArea[] = [7, 8, 9, 4, 6, 2];
+const Silver: OneSquareArea[] = [
   7, 8, 9,
 
   1, 3,
 ];
-export const Pawn: OneSquareArea[] = [8];
+const Pawn: OneSquareArea[] = [8];
 // long range pieces
 // export const Rook: OneSquareArea[] = [
 //   1,  3,
@@ -27,3 +29,10 @@ export const Pawn: OneSquareArea[] = [8];
 // ];
 // // kNight
 // export const kNight = [null];
+
+export const PIECE_CLASS_MOVES = {
+  [PieceClasses.King]: King,
+  [PieceClasses.Gold]: Gold,
+  [PieceClasses.Silver]: Silver,
+  [PieceClasses.Pawn]: Pawn,
+}
