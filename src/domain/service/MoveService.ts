@@ -12,7 +12,7 @@ export type MoveOptionAsPair = {
 };
 
 export class MoveService {
-  static factory()
+  static factory();
   static create_move_from_pair(diagram: Diagram, option: MoveOptionAsPair) {
     const to = diagram.get_square(option.to);
     if (option.from) {

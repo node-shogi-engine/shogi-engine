@@ -35,4 +35,4 @@ export const PIECE_CLASS_MOVES = {
   [PieceClasses.Gold]: Gold,
   [PieceClasses.Silver]: Silver,
   [PieceClasses.Pawn]: Pawn,
-}
+};

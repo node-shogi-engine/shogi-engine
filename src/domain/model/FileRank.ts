@@ -48,7 +48,9 @@ export class FileRank {
     return resultArray;
   }
 
-  static forEach<T>(func: (file: FileRankNumber, rank: FileRankNumber) => T): void {
+  static forEach<T>(
+    func: (file: FileRankNumber, rank: FileRankNumber) => T,
+  ): void {
     FILE_RANK_NUMBER_LIST.forEach((file) => {
       FILE_RANK_NUMBER_LIST.forEach((rank) => {
         func(file, rank);

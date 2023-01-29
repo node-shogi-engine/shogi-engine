@@ -6,7 +6,10 @@ import { PieceType } from "../type/PieceClasses";
 import { PiecesInStand } from "../type/PiecesInStand";
 
 export class PieceStand {
-  constructor(public readonly master: PlayerType, private pieces: Piece[] = []) {}
+  constructor(
+    public readonly master: PlayerType,
+    private pieces: Piece[] = [],
+  ) {}
 
   get top(): PiecesInStand {
     const pieceMap: PiecesInStand = {};

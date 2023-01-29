@@ -35,9 +35,7 @@ export class DiagramService {
     if (move instanceof MoveFromStand) {
       return this.movedFromStand(diagram, move);
     }
-    throw Error(
-      "Argument move was not a instanceof Move. Something Wrong.",
-    );
+    throw Error("Argument move was not a instanceof Move. Something Wrong.");
   }
 
   private movedFromBoard(diagram: Diagram, move: MoveFromBoard): Diagram {

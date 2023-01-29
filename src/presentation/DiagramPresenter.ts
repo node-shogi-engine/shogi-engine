@@ -34,7 +34,9 @@ const getPieceStandString = (pieceStand: PieceStand): string => {
   });
   // pieceType ごとの文字列を空文字や改行で連結する
   const divideArrayBy3 = divideArray(existPieceTypeStringList, 3);
-  let pieceStandAsString = divideArrayBy3.map((stringArray) => stringArray.join(" ")).join("\n");
+  let pieceStandAsString = divideArrayBy3
+    .map((stringArray) => stringArray.join(" "))
+    .join("\n");
   pieceStandAsString += "\n";
   return pieceStandAsString;
 };
@@ -75,9 +77,13 @@ const getShogiBoardString = (shogiBoard: ShogiBoard) => {
 
 export class DiagramPresenter {
   static show(diagram: Diagram) {
-    const gotePieceStandString = getPieceStandString(diagram.pieceStandPair.Gote);
+    const gotePieceStandString = getPieceStandString(
+      diagram.pieceStandPair.Gote,
+    );
     const shogiBoardString = getShogiBoardString(diagram.shogiBoard);
-    const sentePieceStandString = getPieceStandString(diagram.pieceStandPair.Sente);
+    const sentePieceStandString = getPieceStandString(
+      diagram.pieceStandPair.Sente,
+    );
     return gotePieceStandString + shogiBoardString + sentePieceStandString;
   }
 }
