@@ -24,11 +24,16 @@ export class PieceOnBoard {
     return this.piece.isPromoted;
   }
 
+  public moveOut(): Piece {
+    return this.piece;
+  }
+
   public promotion(): void {
     this.piece.promotion();
   }
 
-  public beToken(): void {
+  public beToken(): Piece {
     this.piece.beTaken();
+    return this.piece;
   }
 }

@@ -5,14 +5,19 @@ import { PieceStandPair } from "../type/PieceStandPair";
 import { PlayerType } from "../type/Player";
 import { FileRankPair } from "../type/FileRankNumber";
 import { INITIAL_PIECE_STAND_PAIR } from "../const/PieceStandPair";
+import { PieceOnBoard } from "./PieceOnBoard";
+import { PLAYER_OPPOSITION } from "../const/PlayerOpposition";
+import { Player } from "../value/Player";
 // helper
 
 export class Diagram {
   public readonly pieceStandPair: PieceStandPair;
 
+  private currentTurn: PlayerType = Player.Sente;
+
   constructor(
-    public readonly currentTurn: PlayerType,
     public readonly shogiBoard: ShogiBoard,
+    currentTurn?: PlayerType,
     initialPieceStandPair?: PieceStandPair,
   ) {
     if (initialPieceStandPair) {
@@ -20,53 +25,34 @@ export class Diagram {
     } else {
       this.pieceStandPair = INITIAL_PIECE_STAND_PAIR;
     }
+    if (currentTurn) {
+      this.currentTurn = currentTurn;
+    }
   }
 
-  public getSquare(file_rank: FileRankPair): SquareContent {
+  get turn(): PlayerType {
+    return this.currentTurn;
+  }
+
+  public turnProgress() {
+    this.currentTurn = PLAYER_OPPOSITION[this.currentTurn];
+  }
+
+  public getSquareContent(file_rank: FileRankPair): SquareContent {
     const [file, rank] = file_rank;
     return this.shogiBoard[file][rank];
   }
 
-  // private _moved_from_square_position(move: Move) {
-  //   const from: Square = move.from as Square;
-  //   const { to } = move;
-  //   const target_position_piece = this._put_piece_into_square_position(
-  //     from,
-  //     to,
-  //     move.piece,
-  //   );
-  //   // 移動先に駒が居たら場合
-  //   if (target_position_piece) {
-  //     const player: PlayerType = move.piece.master;
-  //     // 駒が取られる (駒の所有者の変更)
-  //     target_position_piece.be_taken_by(player);
-  //     // 駒台に駒を増やす
-  //     const piece_stand = this.PieceStandPair.get(player) as PieceStand;
-  //     piece_stand.take_piece(target_position_piece);
-  //   }
-  // }
+  public setSquareContentWithPiece(
+    file_rank: FileRankPair,
+    pieceOnBoard: PieceOnBoard,
+  ): void {
+    const [file, rank] = file_rank;
+    this.shogiBoard[file][rank] = pieceOnBoard;
+  }
 
-  // private _moved_from_piece_in_hand(move: Move) {
-  //   const from: PieceStand = move.from as PieceStand;
-  //   const { to } = move;
-  //   this._put_piece_into_square_position(from, to, move.piece);
-  // }
-
-  // private _put_piece_into_square_position(
-  //   from: PieceMoveFrom,
-  //   to: Square,
-  //   piece: Piece,
-  // ): Piece | null {
-  //   // remove piece in position come from
-
-  //   if (from instanceof Square) {
-  //     from.remove_piece();
-  //   }
-  //   if (from instanceof PieceStand) {
-  //     const piece_stand = this.piece_stands.get(from.master) as PieceStand;
-  //     piece_stand.release_piece(piece);
-  //   }
-  //   const target_position_piece = to.put_piece(piece);
-  //   return target_position_piece;
-  // }
+  public setSquareContentToNull(file_rank: FileRankPair): void {
+    const [file, rank] = file_rank;
+    this.shogiBoard[file][rank] = null;
+  }
 }

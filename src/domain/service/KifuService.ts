@@ -1,20 +1,22 @@
 import { Diagram } from "../model/Diagram";
 import { Kifu } from "../model/Kifu";
+import { Move } from "../model/type/Move";
 import { DiagramService } from "./DiagramService";
 
 export class KifuService {
+  static kifu: Kifu = new Kifu(DiagramService.diagram);
+
   static getInitialKifu(): Kifu {
     const kifu = new Kifu(DiagramService.getInitialDiagram());
     return kifu;
   }
 
+  static addMove(move: Move) {
+    KifuService.kifu.addMove(move);
+  }
+
   static getDiagram(kifu: Kifu): Diagram {
-    let diagram: Diagram = kifu.initialDiagram;
-    const diagramService = new DiagramService();
-    kifu.history.forEach((move) => {
-      diagram = diagramService.moved(diagram, move);
-    });
-    return diagram;
+    return DiagramService.generateDiagramFromKifu(kifu);
   }
 
   // get steps(): number {

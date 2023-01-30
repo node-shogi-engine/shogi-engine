@@ -4,11 +4,12 @@ import { PIECE_TYPE_LIST } from "../const/PieceType";
 import { PlayerType } from "../type/Player";
 import { PieceType } from "../type/PieceClasses";
 import { PiecesInStand } from "../type/PiecesInStand";
+import { PieceOnStand } from "./PieceOnStand";
 
 export class PieceStand {
   constructor(
     public readonly master: PlayerType,
-    private pieces: Piece[] = [],
+    private pieces: PieceOnStand[] = [],
   ) {}
 
   get top(): PiecesInStand {
@@ -27,14 +28,21 @@ export class PieceStand {
   }
 
   public takePiece(piece: Piece): void {
-    this.pieces.push(piece);
+    const pieceOnStand = new PieceOnStand(piece);
+    this.pieces.push(pieceOnStand);
   }
 
-  public releasePiece(piece: Piece): void {
-    const pieceIndex = this.pieces.indexOf(piece);
+  public releasePiece(pieceType: PieceType): Piece {
+    const pieceIndex = this.pieces.findIndex(
+      (piece) => piece.type === pieceType,
+    );
     if (pieceIndex < 0) {
-      throw Error(`Piece stand has no ${piece.type}.`);
+      throw Error(`Piece stand has no ${pieceType}.`);
     }
-    this.pieces.splice(pieceIndex, 1);
+    const moveOutPiece = this.pieces[pieceIndex].moveOut();
+    const newPIeceList = this.pieces.slice(0, pieceIndex);
+    newPIeceList.concat(this.pieces.slice(pieceIndex + 1));
+    this.pieces = newPIeceList;
+    return moveOutPiece;
   }
 }

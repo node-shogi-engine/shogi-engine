@@ -1,17 +1,13 @@
-import { SquareContent } from "../type/SquareContent";
 import { PieceStand } from "./PieceStand";
-import { PieceOnStand } from "./PieceOnStand";
 import { PlayerType } from "../type/Player";
+import { FileRankPair } from "../type/FileRankNumber";
+import { PieceOnStand } from "./PieceOnStand";
 
 export class MoveFromStand {
-  public readonly player: PlayerType;
-
   constructor(
+    public readonly player: PlayerType,
     public readonly from: PieceStand,
-    public readonly to: SquareContent,
-    public readonly promotion: boolean,
-    public readonly pieceOnStand: PieceOnStand,
-  ) {
-    this.player = pieceOnStand.master;
-  }
+    public readonly to: FileRankPair,
+    public readonly piece: PieceOnStand,
+  ) {}
 }

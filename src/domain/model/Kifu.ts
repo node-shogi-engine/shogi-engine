@@ -11,7 +11,7 @@ export class Kifu {
     return this.moveHistory;
   }
 
-  public add_move(move: Move) {
+  public addMove(move: Move) {
     this.moveHistory.push(move);
   }
 }
