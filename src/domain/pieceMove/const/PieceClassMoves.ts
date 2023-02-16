@@ -3,15 +3,30 @@ import { PieceClasses } from "@/domain/composeDiagram/value/PieceClasses";
 /* eslint-disable */
 
 // one square pieces
-const King: OneSquareArea[] = [7, 8, 9, 4, 6, 1, 2, 3];
-
-const Gold: OneSquareArea[] = [7, 8, 9, 4, 6, 2];
+// prettier-ignore
+const King: OneSquareArea[] = [
+  7, 8, 9,
+  4,    6,
+  1, 2, 3
+];
+// prettier-ignore
+const Gold: OneSquareArea[] = [
+  7, 8, 9,
+  4,    6,
+     2
+];
+// prettier-ignore
 const Silver: OneSquareArea[] = [
   7, 8, 9,
 
   1, 3,
 ];
-const Pawn: OneSquareArea[] = [8];
+// prettier-ignore
+const Pawn: OneSquareArea[] = [
+     8
+
+
+];
 // long range pieces
 // export const Rook: OneSquareArea[] = [
 //   1,  3,
