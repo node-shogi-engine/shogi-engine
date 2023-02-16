@@ -9,7 +9,7 @@ export const PIECE_INITIAL_MAP = {
   P: "歩",
 };
 
-const promoted = {
+export const promoted = {
   r: "竜",
   b: "馬",
   s: "全",

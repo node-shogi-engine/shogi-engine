@@ -1,13 +1,13 @@
-import { PIECE_TYPE_LIST } from "../domain/const/PieceType";
-import { Diagram } from "../domain/model/Diagram";
-import { FileRank } from "../domain/model/FileRank";
-import { PieceOnBoard } from "../domain/model/PieceOnBoard";
-import { PieceStand } from "../domain/model/PieceStand";
-import { SquareContent } from "../domain/type/SquareContent";
-import { PieceClasses } from "../domain/value/PieceClasses";
+import { FileRankService } from "@/domain/service/composeDiagram/FileRankService";
+import { PIECE_TYPE_LIST } from "@/domain/const/PieceType";
+import { Diagram } from "@/domain/composeDiagram/model/Diagram";
+import { PieceOnBoard } from "@/domain/composeDiagram/model/pieceWrapper/PieceOnBoard";
+import { PieceStand } from "@/domain/composeDiagram/model/PieceStand";
+import { SquareContent } from "@/domain/composeDiagram/type/SquareContent";
+import { PieceClasses } from "@/domain/composeDiagram/value/PieceClasses";
 // helper
-import { range, divideArray } from "../domain/service/utils";
-import { ShogiBoard } from "../domain/value/ShogiBoard";
+import { range, divideArray } from "@/domain/service/utils";
+import { ShogiBoard } from "@/domain/composeDiagram/value/ShogiBoard";
 
 const getSquareContentString = (squareContent: SquareContent): string => {
   if (squareContent instanceof PieceOnBoard) {
@@ -65,8 +65,8 @@ const getShogiBoardString = (shogiBoard: ShogiBoard) => {
         return;
       }
       // コマのイニシャルか "-" を表記
-      const file = FileRank.castNumberToFileRank(f);
-      const rank = FileRank.castNumberToFileRank(r);
+      const file = FileRankService.castNumberToFileRank(f);
+      const rank = FileRankService.castNumberToFileRank(r);
       const squareContent = shogiBoard[file][rank];
       shogiBoardAsString += getSquareContentString(squareContent);
     });

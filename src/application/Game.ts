@@ -1,8 +1,8 @@
-import { Diagram } from "../domain/model/Diagram";
-import { Kifu } from "../domain/model/Kifu";
-import { DiagramService } from "../domain/service/DiagramService";
-import { KifuService } from "../domain/service/KifuService";
-import { DiagramPresenter } from "../presentation/DiagramPresenter";
+import { Diagram } from "@/domain/composeDiagram/model/Diagram";
+import { Kifu } from "@/domain/kifu/Kifu";
+import { DiagramService } from "@/domain/service/composeDiagram/DiagramService";
+import { KifuService } from "@/domain/service/kifu/KifuService";
+import { DiagramPresenter } from "@/presentation/DiagramPresenter";
 
 export class Game {
   private kifu: Kifu;

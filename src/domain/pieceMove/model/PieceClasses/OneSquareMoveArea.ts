@@ -59,9 +59,7 @@ export class OneSquareMoveArea implements IPieceMoveArea {
       const rankAsNumber: number = file_rankAsNumber[1];
       return FileRankService.isInFileRankNumber(fileAsNumber, rankAsNumber);
     };
-    const generateSquarePositionFromNumber = (
-      file_rankAsNumber: number[],
-    ) => {
+    const generateSquarePositionFromNumber = (file_rankAsNumber: number[]) => {
       const file: FileRankNumber = FileRankService.castNumberToFileRank(
         file_rankAsNumber[0],
       );

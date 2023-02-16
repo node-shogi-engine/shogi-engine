@@ -21,5 +21,11 @@ module.exports = {
   rules: {
     "import/prefer-default-export": "off",
     "@typescript-eslint/quotes": ["error", "double"],
+    "class-methods-use-this": "off", // allow don't need to use `this` in class method
+  },
+  settings: {
+    "import/resolver": {
+      typescript: { project: "./src" },
+    },
   },
 };

@@ -1,4 +1,4 @@
-import { Game } from "./application/Game";
+import { Game } from "@/application/Game";
 
 const game = new Game();
 // console.dir(game.showShogiBoard());

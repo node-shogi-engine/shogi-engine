@@ -48,47 +48,31 @@ export class BishopMoveArea implements IPieceMoveArea {
     diagram: Diagram,
   ): SquarePosition[] {
     // 駒のある位置を基準にして、各方向へ伸びていく効きを取得する
-    const upRightPositionList: SquarePosition[] = this.squarePositionsByDirection(
-      currnetPosition,
-      "ur",
-    );
-    const downRightPositionList: SquarePosition[] = this.squarePositionsByDirection(
-      currnetPosition,
-      "dr",
-    );
-    const upLeftPositionList: SquarePosition[] = this.squarePositionsByDirection(
-      currnetPosition,
-      "ul",
-    );
-    const downLeftPositionList: SquarePosition[] = this.squarePositionsByDirection(
-      currnetPosition,
-      "dl",
-    );
+    const upRightPositionList: SquarePosition[] = this.squarePositionsByDirection(currnetPosition, "ur");
+    const downRightPositionList: SquarePosition[] = this.squarePositionsByDirection(currnetPosition, "dr");
+    const upLeftPositionList: SquarePosition[] = this.squarePositionsByDirection(currnetPosition, "ul");
+    const downLeftPositionList: SquarePosition[] = this.squarePositionsByDirection(currnetPosition, "dl");
     // 各方向にて、駒に突き当たるまでの範囲を取得
-    const upRightPositionListWidthDiagram = PieceMoveOnDiagram
-      .slieceInWhereCanMoveOnDiagramForLongPiece(
-        upRightPositionList,
-        currnetPosition,
-        diagram,
-      );
-    const downRightPositionListWidthDiagram = PieceMoveOnDiagram
-      .slieceInWhereCanMoveOnDiagramForLongPiece(
-        downRightPositionList,
-        currnetPosition,
-        diagram,
-      );
-    const upLeftPositionListWidthDiagram = PieceMoveOnDiagram
-      .slieceInWhereCanMoveOnDiagramForLongPiece(
-        upLeftPositionList,
-        currnetPosition,
-        diagram,
-      );
-    const downLeftPositionListWidthDiagram = PieceMoveOnDiagram
-      .slieceInWhereCanMoveOnDiagramForLongPiece(
-        downLeftPositionList,
-        currnetPosition,
-        diagram,
-      );
+    const upRightPositionListWidthDiagram = PieceMoveOnDiagram.slieceInWhereCanMoveOnDiagramForLongPiece(
+      upRightPositionList,
+      currnetPosition,
+      diagram,
+    );
+    const downRightPositionListWidthDiagram = PieceMoveOnDiagram.slieceInWhereCanMoveOnDiagramForLongPiece(
+      downRightPositionList,
+      currnetPosition,
+      diagram,
+    );
+    const upLeftPositionListWidthDiagram = PieceMoveOnDiagram.slieceInWhereCanMoveOnDiagramForLongPiece(
+      upLeftPositionList,
+      currnetPosition,
+      diagram,
+    );
+    const downLeftPositionListWidthDiagram = PieceMoveOnDiagram.slieceInWhereCanMoveOnDiagramForLongPiece(
+      downLeftPositionList,
+      currnetPosition,
+      diagram,
+    );
     // 各方向の移動範囲を結合する
     const squarePositionList: SquarePosition[] = upRightPositionListWidthDiagram.concat(
       downRightPositionListWidthDiagram,

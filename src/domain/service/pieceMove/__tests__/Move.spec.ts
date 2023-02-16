@@ -1,5 +1,5 @@
-import { DiagramService } from "../../../service/composeDiagram/DiagramService";
-import { MoveService } from "../../../service/pieceMove/MoveService";
+import { DiagramService } from "../../composeDiagram/DiagramService";
+import { MoveService } from "../MoveService";
 import { Move } from "../../type/Move";
 
 test("Move test", () => {

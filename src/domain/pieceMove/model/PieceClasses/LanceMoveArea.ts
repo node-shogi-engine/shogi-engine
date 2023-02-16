@@ -16,8 +16,7 @@ export class LanceMoveArea implements IPieceMoveArea {
     pieceMaster: PlayerType,
   ): SquarePosition[] {
     const direction: Direction = pieceMaster === Player.Sente ? "u" : "d";
-    const squarePositionList: SquarePosition[] = this
-      .SquarePositionsByDirection(currnetPosition, direction);
+    const squarePositionList: SquarePosition[] = this.SquarePositionsByDirection(currnetPosition, direction);
     return squarePositionList;
   }
 

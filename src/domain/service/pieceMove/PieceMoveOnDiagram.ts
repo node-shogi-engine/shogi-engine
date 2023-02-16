@@ -40,7 +40,9 @@ export class PieceMoveOnDiagram {
       return squarePositionList;
     }
     const squarePosition: SquarePosition = squarePositionList[index];
-    const pieceInCurrnetPosition: SquareContent = diagram.getSquareContent(squarePosition.pair);
+    const pieceInCurrnetPosition: SquareContent = diagram.getSquareContent(
+      squarePosition.pair,
+    );
     if (pieceInCurrnetPosition?.master === master) {
       return squarePositionList.slice(0, index);
     }

@@ -72,24 +72,21 @@ export class RookMoveArea implements IPieceMoveArea {
       currnetPosition,
       diagram,
     );
-    const rightPositionListWidthDiagram = PieceMoveOnDiagram
-      .slieceInWhereCanMoveOnDiagramForLongPiece(
-        rightPositionList,
-        currnetPosition,
-        diagram,
-      );
-    const downPositionListWidthDiagram = PieceMoveOnDiagram
-      .slieceInWhereCanMoveOnDiagramForLongPiece(
-        downPositionList,
-        currnetPosition,
-        diagram,
-      );
-    const leftPositionListWidthDiagram = PieceMoveOnDiagram
-      .slieceInWhereCanMoveOnDiagramForLongPiece(
-        leftPositionList,
-        currnetPosition,
-        diagram,
-      );
+    const rightPositionListWidthDiagram = PieceMoveOnDiagram.slieceInWhereCanMoveOnDiagramForLongPiece(
+      rightPositionList,
+      currnetPosition,
+      diagram,
+    );
+    const downPositionListWidthDiagram = PieceMoveOnDiagram.slieceInWhereCanMoveOnDiagramForLongPiece(
+      downPositionList,
+      currnetPosition,
+      diagram,
+    );
+    const leftPositionListWidthDiagram = PieceMoveOnDiagram.slieceInWhereCanMoveOnDiagramForLongPiece(
+      leftPositionList,
+      currnetPosition,
+      diagram,
+    );
     // 各方向の移動範囲を結合する
     const squarePositionList: SquarePosition[] = upPositionListWidthDiagram.concat(
       rightPositionListWidthDiagram,
