@@ -1,8 +1,8 @@
 import { Diagram } from "../../composeDiagram/model/Diagram";
-import { Kifu } from "../../kifu/Kifu";
-import { Move } from "../../pieceMove/type/Move";
-import { MoveFromBoard } from "../../pieceMove/model/MoveFromBoard";
-import { MoveFromStand } from "../../pieceMove/model/MoveFromStand";
+import { Kifu } from "../../kifu/model/Kifu";
+import { Move } from "../../pieceMoveArea/type/Move";
+import { MoveFromBoard } from "../../pieceMoveArea/model/MoveFromBoard";
+import { MoveFromStand } from "../../pieceMoveArea/model/MoveFromStand";
 import { ShogiBoardService } from "./ShogiBoardService";
 import { PLAYER_OPPOSITION } from "../../composeDiagram/const/PlayerOpposition";
 import { PieceOnBoard } from "../../composeDiagram/model/pieceWrapper/PieceOnBoard";

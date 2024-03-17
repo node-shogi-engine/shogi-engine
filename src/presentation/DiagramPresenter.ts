@@ -75,8 +75,16 @@ const getShogiBoardString = (shogiBoard: ShogiBoard) => {
   return shogiBoardAsString;
 };
 
+type DiagramJson = {
+  board: ShogiBoard,
+  stand: {
+    Sente: PieceStand,
+    Gote: PieceStand
+  }
+};
+
 export class DiagramPresenter {
-  static show(diagram: Diagram) {
+  static show(diagram: Diagram): string {
     const gotePieceStandString = getPieceStandString(
       diagram.pieceStandPair.Gote,
     );
@@ -85,5 +93,16 @@ export class DiagramPresenter {
       diagram.pieceStandPair.Sente,
     );
     return gotePieceStandString + shogiBoardString + sentePieceStandString;
+  }
+
+  static json(diagram: Diagram): string {
+    const result: DiagramJson = {
+      board: diagram.shogiBoard,
+      stand: {
+        Sente: diagram.pieceStandPair.Sente,
+        Gote: diagram.pieceStandPair.Gote,
+      },
+    };
+    return JSON.stringify(result, null, "  ");
   }
 }

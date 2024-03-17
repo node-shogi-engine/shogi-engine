@@ -1,5 +1,5 @@
 import { Diagram } from "@/domain/composeDiagram/model/Diagram";
-import { Kifu } from "@/domain/kifu/Kifu";
+import { Kifu } from "@/domain/kifu/model/Kifu";
 import { Move } from "@/domain/pieceMove/type/Move";
 import { DiagramService } from "@/domain/service/composeDiagram/DiagramService";
 

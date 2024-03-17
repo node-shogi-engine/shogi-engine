@@ -8,11 +8,11 @@ import { PlayerType } from "@/domain/composeDiagram/type/Player";
 
 export class PieceMoveOnDiagram {
   // static methods for
-  static getPieceMasterByCurrnetPositionAndDiagram(
-    currnetPosition: SquarePosition,
+  static getPieceMasterByCurrentPositionAndDiagram(
+    currentPosition: SquarePosition,
     diagram: Diagram,
   ): PlayerType {
-    const { file, rank } = currnetPosition;
+    const { file, rank } = currentPosition;
     const piece: SquareContent = diagram.getSquareContent([file, rank]);
     if (!piece) {
       throw Error(`There is no piece, in file: ${file}, rank: ${rank}`);
@@ -23,11 +23,11 @@ export class PieceMoveOnDiagram {
   // 効きの止まる場所を取得し、そこまでの配列を返す関数、足の長い駒に使う
   static slieceInWhereCanMoveOnDiagramForLongPiece(
     squarePositionList: SquarePosition[],
-    currnetPosition: SquarePosition,
+    currentPosition: SquarePosition,
     diagram: Diagram,
   ) {
-    const master = this.getPieceMasterByCurrnetPositionAndDiagram(
-      currnetPosition,
+    const master = this.getPieceMasterByCurrentPositionAndDiagram(
+      currentPosition,
       diagram,
     );
     const squareHasPiece = (squarePosition: SquarePosition) => {
@@ -40,10 +40,10 @@ export class PieceMoveOnDiagram {
       return squarePositionList;
     }
     const squarePosition: SquarePosition = squarePositionList[index];
-    const pieceInCurrnetPosition: SquareContent = diagram.getSquareContent(
+    const pieceInCurrentPosition: SquareContent = diagram.getSquareContent(
       squarePosition.pair,
     );
-    if (pieceInCurrnetPosition?.master === master) {
+    if (pieceInCurrentPosition?.master === master) {
       return squarePositionList.slice(0, index);
     }
     return squarePositionList.slice(0, index + 1);
@@ -67,7 +67,7 @@ export class PieceMoveOnDiagram {
   }
 
   constructor(
-    private currnetPosition: SquarePosition,
+    private currentPosition: SquarePosition,
     private diagram: Diagram,
   ) {}
 
@@ -75,12 +75,12 @@ export class PieceMoveOnDiagram {
   public getCanMoveArea(): SquarePosition[] {
     const squarePositions: SquarePosition[] = PieceMoveAreaFactory.factory(
       this.piece.pieceType,
-    ).getSquarePositionsAsOnDiagram(this.CurrnetPosition, this.Diagram);
+    )?.getSquarePositionsAsOnDiagram(this.CurrentPosition, this.Diagram);
     return squarePositions;
   }
 
   private get piece(): PieceOnBoard {
-    const { file, rank } = this.currnetPosition;
+    const { file, rank } = this.currentPosition;
     const piece: SquareContent = this.diagram.getSquareContent([file, rank]);
     if (!piece) {
       throw Error(`There is no piece, in file: ${file}, rank: ${rank}`);

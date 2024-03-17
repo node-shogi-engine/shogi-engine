@@ -1,9 +1,10 @@
 import { Move } from "@/domain/pieceMove/type/Move";
+import { FileRankPair } from "@/domain/composeDiagram/type/FileRankNumber";
 import { Diagram } from "../../composeDiagram/model/Diagram";
 import { PieceStand } from "../../composeDiagram/model/PieceStand";
-import { FileRankPair } from "../../const/FileRankNumber";
 import { Piece } from "../../composeDiagram/model/Piece";
 import { Square } from "../../composeDiagram/type/SquareContent";
+import { PieceMoveFrom } from "@/domain/pieceMoveArea/type/PieceMoveFrom";
 
 export type MoveOptionAsPair = {
   from?: FileRankPair;
@@ -14,10 +15,17 @@ export type MoveOptionAsPair = {
 export class MoveService {
   static factory(
     diagram: Diagram,
-    from: PieceMoveFrom,
+    from: PieceMoveFrom, // FileRankPair | PieceStand,
     to: FileRankPair,
-    promotion: boolean,
-  ) {}
+    promotion?: boolean,
+  ) {
+    // it means from: FileRankPair
+    if (Array.isArray(from)) {
+
+    } else {
+
+    }
+  }
 
   static create_move_from_pair(diagram: Diagram, option: MoveOptionAsPair) {
     const to = diagram.get_square(option.to);
